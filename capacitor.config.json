@@ -1,0 +1,9 @@
+{
+  "appId": "com.jinwanbushui.app",
+  "appName": "今晚不睡",
+  "webDir": ".",
+  "bundledWebRuntime": false,
+  "server": {
+    "androidScheme": "https"
+  }
+}

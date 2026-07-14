@@ -1,0 +1,12 @@
+{
+  "name": "jinwan-bushui",
+  "version": "0.1.0",
+  "private": true,
+  "description": "今晚不睡 - 深夜记录与陪伴 App 雏形",
+  "scripts": {
+    "serve": "python -m http.server 5173 --bind 127.0.0.1",
+    "check": "node --check app.js && node --check config.js && node --check service-worker.js"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}

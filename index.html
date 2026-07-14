@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0b0d18" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="今晚不睡" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <title>今晚不睡</title>
+    <link rel="manifest" href="manifest.json" />
+    <link rel="icon" href="assets/app-icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="assets/app-icon-192.png" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="phone-app" aria-label="今晚不睡 App">
+      <header class="app-header">
+        <div>
+          <p class="eyebrow">Night Companion</p>
+          <h1>今晚不睡</h1>
+        </div>
+        <div class="clock-block">
+          <span>现在</span>
+          <strong id="currentTime">00:00</strong>
+        </div>
+      </header>
+
+      <section class="app-screen active" id="screen-tonight" data-screen="tonight" aria-label="今晚">
+        <section class="moon-card">
+          <div class="moon-row">
+            <svg class="moon-face" viewBox="0 0 260 260" role="img" aria-label="小月亮陪伴形象">
+              <circle class="moon-base" cx="130" cy="130" r="104"></circle>
+              <circle class="moon-cut" cx="166" cy="104" r="94"></circle>
+              <circle class="moon-eye" cx="98" cy="112" r="7"></circle>
+              <circle class="moon-eye" cx="130" cy="121" r="7"></circle>
+              <path class="moon-mouth" d="M92 150 C108 176, 143 176, 160 150"></path>
+            </svg>
+            <div>
+              <p class="status-line" id="statusLine">你还没开始今晚的档案。</p>
+              <strong id="elapsedTime">00:00:00</strong>
+              <div class="session-badge" id="sessionBadge">还没有开始记录</div>
+            </div>
+          </div>
+          <p class="companion-line" id="companionLine">打开后写一句就行，小月亮会陪你坐一会儿。</p>
+          <div class="action-row">
+            <button class="primary" id="startNight" type="button">开始记录今晚</button>
+            <button class="secondary" id="endNight" type="button" disabled>我准备睡了</button>
+          </div>
+        </section>
+
+        <section class="panel-section">
+          <div class="section-title">
+            <h2>现在的状态</h2>
+            <span>选一个就好</span>
+          </div>
+          <div class="mood-grid" id="moodGrid" role="group" aria-label="选择当前状态">
+            <button class="mood active" data-mood="脑子停不下来" type="button">脑子停不下来</button>
+            <button class="mood" data-mood="舍不得今天结束" type="button">舍不得今天结束</button>
+            <button class="mood" data-mood="有点空" type="button">有点空</button>
+            <button class="mood" data-mood="还很清醒" type="button">还很清醒</button>
+            <button class="mood" data-mood="焦虑" type="button">焦虑</button>
+            <button class="mood" data-mood="想找人说话" type="button">想找人说话</button>
+          </div>
+        </section>
+
+        <section class="panel-section">
+          <label class="note-box">
+            <span>今晚脑子里最吵的是什么？</span>
+            <textarea id="nightNote" rows="4" maxlength="180" placeholder="比如：明天的事、没做完的工作、或者只是还不想睡。"></textarea>
+          </label>
+          <div class="action-row compact">
+            <button class="secondary" id="askMoon" type="button">让小月亮回一句</button>
+            <button class="ghost" id="saveMoment" type="button">保存片刻</button>
+          </div>
+        </section>
+      </section>
+
+      <section class="app-screen" id="screen-records" data-screen="records" aria-label="档案">
+        <section class="panel-section">
+          <div class="section-title">
+            <h2>夜晚速览</h2>
+            <span id="recordCount">0 晚</span>
+          </div>
+          <div class="stat-grid">
+            <div>
+              <span>本周深夜</span>
+              <strong id="weekNights">0</strong>
+            </div>
+            <div>
+              <span>平均时长</span>
+              <strong id="avgDuration">0h</strong>
+            </div>
+            <div>
+              <span>最晚结束</span>
+              <strong id="latestEnd">--:--</strong>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel-section">
+          <div class="section-title">
+            <h2>夜晚档案</h2>
+            <span>最近记录</span>
+          </div>
+          <div class="record-list" id="recordList"></div>
+        </section>
+      </section>
+
+      <section class="app-screen" id="screen-report" data-screen="report" aria-label="报告">
+        <section class="panel-section">
+          <div class="section-title">
+            <h2>本周报告卡</h2>
+            <span>可截图分享</span>
+          </div>
+          <div class="report-card" id="reportCard">
+            <span>今晚不睡</span>
+            <strong id="reportTitle">本周还没有夜晚档案</strong>
+            <p id="reportBody">开始记录一晚后，这里会生成你的深夜人格和本周摘要。</p>
+          </div>
+          <button class="secondary full" id="copyReport" type="button">复制报告文案</button>
+        </section>
+
+        <section class="panel-section">
+          <div class="section-title">
+            <h2>夜晚热力</h2>
+            <span>最近 35 天</span>
+          </div>
+          <div class="heatmap" id="heatmap" aria-label="最近 35 天熬夜热力图"></div>
+        </section>
+
+        <section class="panel-section">
+          <div class="section-title">
+            <h2>周报条形图</h2>
+            <span>最近 7 晚</span>
+          </div>
+          <div class="bar-chart" id="barChart" aria-label="最近 7 晚熬夜时长条形图"></div>
+        </section>
+
+        <section class="panel-section">
+          <div class="section-title">
+            <h2>夜猫人格</h2>
+            <span id="personaName">等待生成</span>
+          </div>
+          <svg class="radar" id="radarChart" viewBox="0 0 300 260" role="img" aria-label="夜猫人格雷达图"></svg>
+        </section>
+      </section>
+
+      <section class="app-screen" id="screen-mine" data-screen="mine" aria-label="我的">
+        <section class="panel-section profile-card">
+          <img src="assets/app-icon-192.png" alt="" />
+          <div>
+            <h2>小月亮</h2>
+            <p>记录你没睡的夜晚，也陪你把这一晚过完。</p>
+          </div>
+        </section>
+
+        <section class="panel-section">
+          <div class="section-title">
+            <h2>手表陪伴模式</h2>
+            <span>watchOS 雏形</span>
+          </div>
+          <div class="watch-preview">
+            <div class="watch-case">
+              <div class="watch-screen">
+                <span id="watchFace">抱抱月</span>
+                <strong id="watchMood">你现在还好吗？</strong>
+                <p id="watchReply">点一个状态，小月亮会回你一句。</p>
+              </div>
+            </div>
+            <div class="watch-actions" id="watchActions" aria-label="手表情绪快捷按钮"></div>
+          </div>
+        </section>
+
+        <section class="panel-section">
+          <div class="section-title">
+            <h2>深夜同伴房间</h2>
+            <span>概念版</span>
+          </div>
+          <div class="room-list" id="roomList"></div>
+          <button class="secondary full" id="refreshRoom" type="button">刷新同伴状态</button>
+        </section>
+
+        <section class="panel-section settings-list">
+          <div class="section-title">
+            <h2>上架前设置</h2>
+            <span>雏形</span>
+          </div>
+          <div class="setting-row">
+            <span>数据保存</span>
+            <strong>本机</strong>
+          </div>
+          <div class="setting-row">
+            <span>后台配置</span>
+            <strong>config.js</strong>
+          </div>
+          <div class="setting-row">
+            <span>安装方式</span>
+            <strong>PWA/原生壳</strong>
+          </div>
+        </section>
+      </section>
+
+      <nav class="tabbar" aria-label="底部导航">
+        <button class="tab active" data-tab="tonight" type="button">
+          <span>月</span>
+          今晚
+        </button>
+        <button class="tab" data-tab="records" type="button">
+          <span>档</span>
+          档案
+        </button>
+        <button class="tab" data-tab="report" type="button">
+          <span>图</span>
+          报告
+        </button>
+        <button class="tab" data-tab="mine" type="button">
+          <span>我</span>
+          我的
+        </button>
+      </nav>
+    </main>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="config.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

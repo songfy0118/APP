@@ -1,0 +1,19 @@
+# Local/runtime artifacts
+.agents/
+.codex/
+tmp/
+*.log
+
+# Dependencies and generated native projects
+node_modules/
+ios/
+android/
+dist/
+build/
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+
+# Rendered PDF previews
+output/pdf/*.png
