@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>离谱找茬局</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="game-shell">
+      <section class="topbar" aria-label="游戏状态">
+        <div>
+          <p class="eyebrow">30 秒挑战</p>
+          <h1>离谱找茬局</h1>
+        </div>
+        <button class="icon-btn" id="restartBtn" type="button" aria-label="重新开始" title="重新开始">↻</button>
+      </section>
+
+      <section class="score-strip" aria-label="分数面板">
+        <div>
+          <span>时间</span>
+          <strong id="timeLeft">30</strong>
+        </div>
+        <div>
+          <span>已找</span>
+          <strong><b id="foundCount">0</b>/<b id="targetCount">5</b></strong>
+        </div>
+        <div>
+          <span>生命</span>
+          <strong id="livesText">❤❤❤</strong>
+        </div>
+        <div>
+          <span>分数</span>
+          <strong id="scoreText">0</strong>
+        </div>
+      </section>
+
+      <section class="stage-card">
+        <div class="level-copy">
+          <div>
+            <p class="level-kicker" id="levelKicker">凌晨办公室</p>
+            <h2 id="levelTitle">找出右图里 5 个不对劲</h2>
+          </div>
+          <span id="difficultyBadge">入门局</span>
+        </div>
+
+        <div class="boards" aria-label="找茬棋盘">
+          <article class="board-wrap">
+            <p>原图</p>
+            <div class="board" id="leftBoard" aria-label="原图"></div>
+          </article>
+          <article class="board-wrap active-board">
+            <p>点击右图</p>
+            <div class="board" id="rightBoard" aria-label="右图，点击差异处"></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="actions" aria-label="操作">
+        <button id="hintBtn" type="button">看提示</button>
+        <button id="shareBtn" type="button">复制战绩</button>
+        <button id="nextBtn" type="button">下一关</button>
+      </section>
+
+      <section class="market-note">
+        <strong>爆点:</strong>
+        <span id="hookText">只有 8% 的人能在 30 秒内找全。</span>
+      </section>
+
+      <dialog id="resultDialog">
+        <div class="result-card">
+          <p class="result-kicker" id="resultKicker">本局结束</p>
+          <h2 id="resultTitle">还差一点</h2>
+          <p id="resultBody">再来一局，下一关更离谱。</p>
+          <div class="result-stats">
+            <span>本局分数 <b id="finalScore">0</b></span>
+            <span>最高分 <b id="bestScore">0</b></span>
+          </div>
+          <div class="result-actions">
+            <button id="dialogShareBtn" type="button">复制挑战文案</button>
+            <button id="dialogNextBtn" type="button">继续挑战</button>
+          </div>
+        </div>
+      </dialog>
+    </main>
+
+    <script src="./game.js"></script>
+  </body>
+</html>

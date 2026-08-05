@@ -3,6 +3,7 @@
 .codex/
 tmp/
 *.log
+open_source/
 
 # Dependencies and generated native projects
 node_modules/
