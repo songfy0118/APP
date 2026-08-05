@@ -52,3 +52,4 @@
 - 生效日期
 - 如果接入广告、云同步、账号或分析服务，需要更新隐私说明
 
+如果 URL 无法访问，按 `GITHUB_PAGES_TROUBLESHOOTING.md` 排查。

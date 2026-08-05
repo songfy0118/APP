@@ -30,6 +30,7 @@
 - 已添加 GitHub Pages Actions 工作流：`.github/workflows/pages.yml`
 - 已添加 `.nojekyll`
 - 已添加部署说明：`GITHUB_PAGES_DEPLOYMENT.md`
+- 已添加 Pages 排查清单：`GITHUB_PAGES_TROUBLESHOOTING.md`
 
 ## 当前阻塞
 
@@ -39,6 +40,7 @@
 - Pages source 是否设置为 GitHub Actions。
 - Actions 里的 Pages workflow 是否成功。
 - 隐私政策 URL 是否可访问。
+- 当前自动检查尚未确认公开 URL 可访问，需要在 GitHub 页面手动核对。
 
 预期 URL：
 
@@ -66,7 +68,7 @@
 ## 下一步优先级
 
 1. 在 GitHub 页面确认 Pages 部署成功，拿到隐私政策 HTTPS URL。
-2. 如果 Pages 没成功，修 GitHub Actions 或改为手动 Pages source。
+2. 如果 Pages 没成功，按 `GITHUB_PAGES_TROUBLESHOOTING.md` 排查。
 3. 在 Mac/Xcode 建立真实 iOS + watchOS 工程。
 4. 接 WatchConnectivity，把 Watch 端事件写入 iPhone。
 5. 生成 TestFlight build。
@@ -77,4 +79,3 @@
 - 不先做账号系统。
 - 不先接广告 SDK。
 - 不先写医疗或诊断相关文案。
-
