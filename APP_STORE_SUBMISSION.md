@@ -33,6 +33,13 @@ App Store 最后上传的不是 `html/css/js`，而是 Xcode 生成的 iOS 构�
 10. 用户协议网址
 11. App 描述、关键词、年龄分级
 
+当前已准备静态占位页：
+
+- `privacy.html`
+- `terms.html`
+
+部署到 GitHub Pages 或其他静态托管后，把对应 HTTPS URL 填入 App Store Connect。
+
 ## 审核措辞
 
 推荐写法：
@@ -81,4 +88,6 @@ Apple Watch:
 
 - App Store 文案：`APP_STORE_METADATA_DRAFT.md`
 - 隐私政策草稿：`PRIVACY_POLICY_DRAFT.md`
+- 隐私政策网页：`privacy.html`
+- 用户协议网页：`terms.html`
 - WatchConnectivity 计划：`WATCH_CONNECTIVITY_XCODE_PLAN.md`
