@@ -3,7 +3,9 @@
   const totalCells = size * size;
   const roundSeconds = 30;
   const maxLives = 3;
-  const storageKey = "viralSpotGameBest";
+  const bestKey = "viralSpotGameBest";
+  const streakKey = "viralSpotGameStreak";
+  const dailyKey = "viralSpotGameDaily";
 
   const levels = [
     {
@@ -13,25 +15,25 @@
       hook: "只有 8% 的人能在 30 秒内找全。",
       pool: ["💻", "☕", "📄", "🪴", "📎", "🧃", "🕯️", "🌙"],
       swaps: [
-        [2, "💻", "🎮"],
-        [9, "☕", "🍜"],
-        [16, "📄", "💸"],
-        [24, "🪴", "🌵"],
-        [31, "📎", "🧲"]
+        [2, "🎮"],
+        [9, "🍜"],
+        [16, "💸"],
+        [24, "🌵"],
+        [31, "🧲"]
       ]
     },
     {
       theme: "夜宵摊",
       title: "这桌夜宵哪里怪怪的",
       badge: "上头局",
-      hook: "这一关很适合发给朋友互相折磨。",
+      hook: "这一关很适合发给朋友互相挑战。",
       pool: ["🍢", "🥤", "🥟", "🌶️", "🥬", "🍜", "🧄", "🔥"],
       swaps: [
-        [4, "🍢", "🪥"],
-        [13, "🥤", "🧪"],
-        [18, "🥟", "🧊"],
-        [27, "🌶️", "🧯"],
-        [34, "🍜", "🧶"]
+        [4, "🪥"],
+        [13, "🧪"],
+        [18, "🧊"],
+        [27, "🧯"],
+        [34, "🧶"]
       ]
     },
     {
@@ -41,11 +43,11 @@
       hook: "截图发群里，通常会有人不服。",
       pool: ["🎧", "📱", "🎒", "🧢", "🚇", "📚", "🥪", "🪪"],
       swaps: [
-        [1, "🎧", "📣"],
-        [8, "📱", "🧱"],
-        [20, "🎒", "🧳"],
-        [25, "🚇", "🚀"],
-        [35, "🪪", "🃏"]
+        [1, "📣"],
+        [8, "🧱"],
+        [20, "🧳"],
+        [25, "🚀"],
+        [35, "🃏"]
       ]
     },
     {
@@ -55,11 +57,11 @@
       hook: "过关后很容易想再点下一关。",
       pool: ["🛏️", "📚", "🧸", "🧦", "💡", "📱", "🌙", "🪞"],
       swaps: [
-        [6, "🛏️", "🛸"],
-        [12, "📚", "🍔"],
-        [17, "🧸", "🗿"],
-        [23, "💡", "🌞"],
-        [30, "🌙", "🍳"]
+        [6, "🛸"],
+        [12, "🍔"],
+        [17, "🗿"],
+        [23, "🌞"],
+        [30, "🍳"]
       ]
     }
   ];
@@ -71,7 +73,8 @@
     score: 0,
     timeLeft: roundSeconds,
     timer: null,
-    finished: false
+    finished: false,
+    dailyStatus: "未完成"
   };
 
   const els = {
@@ -82,6 +85,9 @@
     targetCount: document.querySelector("#targetCount"),
     livesText: document.querySelector("#livesText"),
     scoreText: document.querySelector("#scoreText"),
+    bestInlineText: document.querySelector("#bestInlineText"),
+    streakText: document.querySelector("#streakText"),
+    dailyLabel: document.querySelector("#dailyLabel"),
     levelKicker: document.querySelector("#levelKicker"),
     levelTitle: document.querySelector("#levelTitle"),
     difficultyBadge: document.querySelector("#difficultyBadge"),
@@ -96,9 +102,41 @@
     resultBody: document.querySelector("#resultBody"),
     finalScore: document.querySelector("#finalScore"),
     bestScore: document.querySelector("#bestScore"),
+    dailyResult: document.querySelector("#dailyResult"),
+    streakResult: document.querySelector("#streakResult"),
     dialogShareBtn: document.querySelector("#dialogShareBtn"),
     dialogNextBtn: document.querySelector("#dialogNextBtn")
   };
+
+  function todayKey() {
+    return new Date().toISOString().slice(0, 10);
+  }
+
+  function dailyLevelIndex() {
+    return [...todayKey()].reduce((sum, char) => sum + char.charCodeAt(0), 0) % levels.length;
+  }
+
+  function getStreak() {
+    try {
+      return JSON.parse(localStorage.getItem(streakKey)) || { count: 0, lastWin: "" };
+    } catch {
+      return { count: 0, lastWin: "" };
+    }
+  }
+
+  function setStreak(record) {
+    localStorage.setItem(streakKey, JSON.stringify(record));
+  }
+
+  function updateDailyStatus(won) {
+    const date = todayKey();
+    const record = JSON.parse(localStorage.getItem(dailyKey) || "{}");
+    if (won) {
+      record[date] = "done";
+      localStorage.setItem(dailyKey, JSON.stringify(record));
+    }
+    state.dailyStatus = record[date] === "done" ? "已完成" : "未完成";
+  }
 
   function buildBaseGrid(level) {
     return Array.from({ length: totalCells }, (_, index) => level.pool[index % level.pool.length]);
@@ -106,7 +144,7 @@
 
   function buildRightGrid(level, baseGrid) {
     const grid = [...baseGrid];
-    level.swaps.forEach(([index, , to]) => {
+    level.swaps.forEach(([index, to]) => {
       grid[index] = to;
     });
     return grid;
@@ -142,11 +180,13 @@
     state.timeLeft = roundSeconds;
     state.finished = false;
     clearInterval(state.timer);
+    updateDailyStatus(false);
 
     const level = currentLevel();
     const baseGrid = buildBaseGrid(level);
     const rightGrid = buildRightGrid(level, baseGrid);
 
+    els.dailyLabel.textContent = state.levelIndex === dailyLevelIndex() ? `今日挑战 ${todayKey()}` : "练习关卡";
     els.levelKicker.textContent = level.theme;
     els.levelTitle.textContent = level.title;
     els.difficultyBadge.textContent = level.badge;
@@ -169,10 +209,13 @@
   }
 
   function updateStats() {
+    const streak = getStreak();
     els.timeLeft.textContent = String(Math.max(0, state.timeLeft));
     els.foundCount.textContent = String(state.found.size);
     els.livesText.textContent = "❤".repeat(state.lives) + "♡".repeat(maxLives - state.lives);
     els.scoreText.textContent = String(state.score);
+    els.bestInlineText.textContent = String(Number(localStorage.getItem(bestKey) || 0));
+    els.streakText.textContent = String(streak.count || 0);
   }
 
   function isDiffIndex(index) {
@@ -204,7 +247,7 @@
       cell.classList.add("wrong");
       window.setTimeout(() => cell.classList.remove("wrong"), 520);
       if (state.lives <= 0) {
-        finishRound(false, "三次点错", "这种关卡就该让朋友也来受一下。");
+        finishRound(false, "三次点错", "这种关卡就该让朋友也来试一下。");
       }
     }
     updateStats();
@@ -229,6 +272,26 @@
     }
   }
 
+  function updateWinStreak(won) {
+    const record = getStreak();
+    const date = todayKey();
+    if (!won) {
+      return record;
+    }
+    if (record.lastWin === date) {
+      return record;
+    }
+    const yesterday = new Date();
+    yesterday.setDate(yesterday.getDate() - 1);
+    const yesterdayKey = yesterday.toISOString().slice(0, 10);
+    const nextRecord = {
+      count: record.lastWin === yesterdayKey ? (record.count || 0) + 1 : 1,
+      lastWin: date
+    };
+    setStreak(nextRecord);
+    return nextRecord;
+  }
+
   function finishRound(won, title, body) {
     if (state.finished) {
       return;
@@ -237,9 +300,11 @@
     clearInterval(state.timer);
     if (won) {
       state.score += state.timeLeft * 10 + state.lives * 100;
+      updateDailyStatus(true);
     }
-    const best = Math.max(Number(localStorage.getItem(storageKey) || 0), state.score);
-    localStorage.setItem(storageKey, String(best));
+    const streak = updateWinStreak(won);
+    const best = Math.max(Number(localStorage.getItem(bestKey) || 0), state.score);
+    localStorage.setItem(bestKey, String(best));
     updateStats();
 
     els.resultKicker.textContent = won ? "挑战成功" : "本局结束";
@@ -247,6 +312,8 @@
     els.resultBody.textContent = body;
     els.finalScore.textContent = String(state.score);
     els.bestScore.textContent = String(best);
+    els.dailyResult.textContent = state.dailyStatus;
+    els.streakResult.textContent = String(streak.count || 0);
     if (!els.resultDialog.open) {
       els.resultDialog.showModal();
     }
@@ -254,7 +321,8 @@
 
   async function copyShareText() {
     const level = currentLevel();
-    const text = `我在《离谱找茬局》${level.theme}拿了 ${state.score} 分，30 秒找 5 个不对劲，你敢试吗？`;
+    const streak = getStreak();
+    const text = `我在《离谱找茬局》${level.theme}拿了 ${state.score} 分，今日挑战${state.dailyStatus}，连胜 ${streak.count || 0} 天。30 秒找 5 个不对劲，你敢试吗？`;
     try {
       await navigator.clipboard.writeText(text);
       els.hookText.textContent = "战绩已复制，可以直接发群里。";
@@ -278,5 +346,5 @@
   els.dialogNextBtn.addEventListener("click", nextRound);
   els.restartBtn.addEventListener("click", () => resetRound(state.levelIndex));
 
-  resetRound(0);
+  resetRound(dailyLevelIndex());
 })();

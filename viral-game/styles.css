@@ -80,7 +80,7 @@ h1 {
 
 .score-strip {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   gap: 8px;
   margin-bottom: 12px;
 }
@@ -335,6 +335,10 @@ dialog::backdrop {
 
   .actions {
     grid-template-columns: 1fr;
+  }
+
+  .score-strip {
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .score-strip strong {
