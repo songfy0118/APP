@@ -97,4 +97,5 @@ Apple Watch:
 - WatchConnectivity 计划：`WATCH_CONNECTIVITY_XCODE_PLAN.md`
 - TestFlight 与隐私标签检查表：`TESTFLIGHT_AND_PRIVACY_CHECKLIST.md`
 - App Store 截图计划：`APP_STORE_SCREENSHOT_PLAN.md`
+- App Review 备注草稿：`APP_REVIEW_NOTES_DRAFT.md`
 - 发布状态看板：`RELEASE_STATUS.md`
