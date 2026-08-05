@@ -45,6 +45,20 @@ http://电脑的局域网IP:5173/index.html
 - `capacitor.config.json`：后续打包 iOS/Android 的 Capacitor 配置
 - `native/watchos/MoonWatchCompanion.swift`：Apple Watch 端 SwiftUI 雏形
 - `APP_STORE_SUBMISSION.md`：App Store 提交路线
+- `privacy.html` / `terms.html`：上架前隐私政策和用户协议网页
+- `.github/workflows/pages.yml`：GitHub Pages 静态部署工作流
+
+## GitHub Pages
+
+仓库已加入 GitHub Pages Actions 配置。推送到 `master` 后，可在 GitHub 仓库的 `Settings -> Pages` 中启用或查看部署状态。
+
+常见访问地址：
+
+```text
+https://songfy0118.github.io/APP/
+https://songfy0118.github.io/APP/privacy.html
+https://songfy0118.github.io/APP/terms.html
+```
 
 ## 上架方向
 

@@ -40,6 +40,8 @@ App Store 最后上传的不是 `html/css/js`，而是 Xcode 生成的 iOS 构�
 
 部署到 GitHub Pages 或其他静态托管后，把对应 HTTPS URL 填入 App Store Connect。
 
+本仓库已加入 GitHub Pages Actions 配置，详见 `GITHUB_PAGES_DEPLOYMENT.md`。
+
 ## 审核措辞
 
 推荐写法：
@@ -90,4 +92,5 @@ Apple Watch:
 - 隐私政策草稿：`PRIVACY_POLICY_DRAFT.md`
 - 隐私政策网页：`privacy.html`
 - 用户协议网页：`terms.html`
+- GitHub Pages 部署说明：`GITHUB_PAGES_DEPLOYMENT.md`
 - WatchConnectivity 计划：`WATCH_CONNECTIVITY_XCODE_PLAN.md`
