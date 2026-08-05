@@ -47,6 +47,7 @@ http://电脑的局域网IP:5173/index.html
 - `APP_STORE_SUBMISSION.md`：App Store 提交路线
 - `privacy.html` / `terms.html`：上架前隐私政策和用户协议网页
 - `.github/workflows/pages.yml`：GitHub Pages 静态部署工作流
+- `RELEASE_STATUS.md`：当前完成度、阻塞项和下一步
 
 ## GitHub Pages
 
