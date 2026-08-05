@@ -60,10 +60,11 @@ iPhone:
 
 Apple Watch:
 
-- 快捷选择情绪
-- 弹出小月亮表情
-- 显示一句安慰
-- 轻震反馈
+- 快捷选择紧张、困、烦、低落
+- 显示一句轻量陪伴提示
+- 10 秒缓冲动画和倒计时
+- 轻触觉反馈
+- 后续通过 WatchConnectivity 同步到 iPhone
 
 ## 后续真实工程步骤
 
@@ -75,3 +76,9 @@ Apple Watch:
 6. 上传 TestFlight
 7. 准备截图和隐私材料
 8. 提交 App Store 审核
+
+## 当前元数据草稿
+
+- App Store 文案：`APP_STORE_METADATA_DRAFT.md`
+- 隐私政策草稿：`PRIVACY_POLICY_DRAFT.md`
+- WatchConnectivity 计划：`WATCH_CONNECTIVITY_XCODE_PLAN.md`
