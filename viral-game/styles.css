@@ -296,6 +296,25 @@ dialog::backdrop {
   margin-top: 14px;
 }
 
+.ad-card h2 {
+  font-size: 24px;
+}
+
+.ad-meter {
+  display: grid;
+  place-items: center;
+  width: 82px;
+  height: 82px;
+  margin: 12px auto;
+  border: 8px solid rgba(255, 189, 47, 0.35);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  background: #fff8df;
+  color: var(--ink);
+  font-size: 34px;
+  font-weight: 900;
+}
+
 @keyframes pulse {
   from {
     transform: scale(1);
