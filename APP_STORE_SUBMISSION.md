@@ -94,3 +94,4 @@ Apple Watch:
 - 用户协议网页：`terms.html`
 - GitHub Pages 部署说明：`GITHUB_PAGES_DEPLOYMENT.md`
 - WatchConnectivity 计划：`WATCH_CONNECTIVITY_XCODE_PLAN.md`
+- TestFlight 与隐私标签检查表：`TESTFLIGHT_AND_PRIVACY_CHECKLIST.md`
