@@ -6,6 +6,8 @@
   const bestKey = "viralSpotGameBest";
   const streakKey = "viralSpotGameStreak";
   const dailyKey = "viralSpotGameDaily";
+  const playerNameKey = "viralSpotGamePlayerName";
+  const leaderboardKey = "viralSpotGameLeaderboard";
 
   const levels = [
     {
@@ -389,8 +391,15 @@
     adDialog: document.querySelector("#adDialog"),
     adCountdown: document.querySelector("#adCountdown"),
     watchAdBtn: document.querySelector("#watchAdBtn"),
-    skipAdBtn: document.querySelector("#skipAdBtn")
+    skipAdBtn: document.querySelector("#skipAdBtn"),
+    challengeTitle: document.querySelector("#challengeTitle"),
+    challengeCode: document.querySelector("#challengeCode"),
+    copyChallengeBtn: document.querySelector("#copyChallengeBtn"),
+    leaderboardList: document.querySelector("#leaderboardList"),
+    rankTag: document.querySelector("#rankTag")
   };
+
+  const botNames = ["小林", "阿圆", "今天早睡", "打工魂", "奶茶续命", "不服再来"];
 
   function todayKey() {
     return new Date().toISOString().slice(0, 10);
@@ -398,6 +407,66 @@
 
   function dailyLevelIndex() {
     return [...todayKey()].reduce((sum, char) => sum + char.charCodeAt(0), 0) % levels.length;
+  }
+
+  function getPlayerName() {
+    const saved = localStorage.getItem(playerNameKey);
+    if (saved) {
+      return saved;
+    }
+    const generated = `玩家${Math.floor(100 + Math.random() * 900)}`;
+    localStorage.setItem(playerNameKey, generated);
+    return generated;
+  }
+
+  function challengeCode() {
+    return `LP-${todayKey().replaceAll("-", "")}-${String(state.levelIndex + 1).padStart(2, "0")}`;
+  }
+
+  function getLeaderboardRecord() {
+    try {
+      return JSON.parse(localStorage.getItem(leaderboardKey)) || {};
+    } catch {
+      return {};
+    }
+  }
+
+  function setLeaderboardRecord(record) {
+    localStorage.setItem(leaderboardKey, JSON.stringify(record));
+  }
+
+  function seededScore(seed, index) {
+    const base = [...seed].reduce((sum, char) => sum + char.charCodeAt(0), 0);
+    return 580 + ((base * (index + 7)) % 620) + index * 36;
+  }
+
+  function leaderboardRows() {
+    const date = todayKey();
+    const record = getLeaderboardRecord();
+    const savedScore = record[date] || 0;
+    const rows = botNames.map((name, index) => ({
+      name,
+      score: seededScore(date, index)
+    }));
+    if (savedScore > 0) {
+      rows.push({ name: getPlayerName(), score: savedScore, mine: true });
+    }
+    return rows.sort((a, b) => b.score - a.score).slice(0, 5);
+  }
+
+  function renderLeaderboard() {
+    const rows = leaderboardRows();
+    els.rankTag.textContent = localStorage.getItem(leaderboardKey) ? "今日榜" : "模拟榜";
+    els.leaderboardList.innerHTML = rows
+      .map((row, index) => `<li><span>#${index + 1}</span><b>${row.mine ? "我" : row.name}</b><strong>${row.score}</strong></li>`)
+      .join("");
+  }
+
+  function updateLeaderboard(score) {
+    const date = todayKey();
+    const record = getLeaderboardRecord();
+    record[date] = Math.max(record[date] || 0, score);
+    setLeaderboardRecord(record);
   }
 
   function getStreak() {
@@ -475,10 +544,13 @@
     els.levelTitle.textContent = level.title;
     els.difficultyBadge.textContent = level.badge;
     els.hookText.textContent = level.hook;
+    els.challengeTitle.textContent = `${level.theme}：30 秒找 5 个不对劲`;
+    els.challengeCode.textContent = `${challengeCode()}｜${level.badge}`;
     els.targetCount.textContent = String(level.swaps.length);
     renderBoard(els.leftBoard, baseGrid, false);
     renderBoard(els.rightBoard, rightGrid, true);
     updateStats();
+    renderLeaderboard();
     startTimer();
   }
 
@@ -617,6 +689,7 @@
     if (won) {
       state.score += state.timeLeft * 10 + state.lives * 100;
       updateDailyStatus(true);
+      updateLeaderboard(state.score);
     }
     const streak = updateWinStreak(won);
     const best = Math.max(Number(localStorage.getItem(bestKey) || 0), state.score);
@@ -630,21 +703,35 @@
     els.bestScore.textContent = String(best);
     els.dailyResult.textContent = state.dailyStatus;
     els.streakResult.textContent = String(streak.count || 0);
+    renderLeaderboard();
     if (!els.resultDialog.open) {
       els.resultDialog.showModal();
     }
   }
 
-  async function copyShareText() {
-    const level = currentLevel();
-    const streak = getStreak();
-    const text = `我在《离谱找茬局》${level.theme}拿了 ${state.score} 分，今日挑战${state.dailyStatus}，连胜 ${streak.count || 0} 天。30 秒找 5 个不对劲，你敢试吗？`;
+  async function copyText(text, successText) {
     try {
       await navigator.clipboard.writeText(text);
-      els.hookText.textContent = "战绩已复制，可以直接发群里。";
+      els.hookText.textContent = successText;
     } catch {
       els.hookText.textContent = text;
     }
+  }
+
+  function shareText() {
+    const level = currentLevel();
+    const streak = getStreak();
+    return `我在《离谱找茬局》${level.theme}拿了 ${state.score} 分，今日挑战${state.dailyStatus}，连胜 ${streak.count || 0} 天。挑战码 ${challengeCode()}，30 秒找 5 个不对劲，你敢试吗？`;
+  }
+
+  async function copyShareText() {
+    await copyText(shareText(), "战绩已复制，可以直接发群里。");
+  }
+
+  async function copyChallengeText() {
+    const level = currentLevel();
+    const text = `今天这关你能 30 秒找完吗？《离谱找茬局》${level.theme}，挑战码 ${challengeCode()}。`;
+    await copyText(text, "好友挑战已复制，发给朋友试试。");
   }
 
   function nextRound() {
@@ -657,6 +744,7 @@
   els.rightBoard.addEventListener("click", handleCellClick);
   els.hintBtn.addEventListener("click", showHint);
   els.shareBtn.addEventListener("click", copyShareText);
+  els.copyChallengeBtn.addEventListener("click", copyChallengeText);
   els.dialogShareBtn.addEventListener("click", copyShareText);
   els.nextBtn.addEventListener("click", nextRound);
   els.dialogNextBtn.addEventListener("click", nextRound);
