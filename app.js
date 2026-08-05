@@ -38,6 +38,10 @@ const watchActions = $("#watchActions");
 const watchFace = $("#watchFace");
 const watchMood = $("#watchMood");
 const watchReply = $("#watchReply");
+const watchWeekCount = $("#watchWeekCount");
+const watchTopMood = $("#watchTopMood");
+const watchLatestTime = $("#watchLatestTime");
+const watchTimeline = $("#watchTimeline");
 
 function loadRecords() {
   try {
@@ -220,7 +224,7 @@ function saveWatchMoment(item) {
     startAt: now.toISOString(),
     endAt: now.toISOString(),
     mood: item.mood,
-    note: `Apple Watch 快捷记录：${item.mood}`,
+    note: `Apple Watch 10 秒缓冲：${item.mood}`,
     reply: item.reply,
     savedOnly: true,
     source: "watch",
@@ -257,6 +261,10 @@ function renderStats() {
     return current.getHours() * 60 + current.getMinutes() > best.getHours() * 60 + best.getMinutes() ? record : winner;
   }, null);
   latestEnd.textContent = latest ? formatClock(new Date(latest.endAt)) : "--:--";
+}
+
+function getWatchRecords() {
+  return state.records.filter((record) => record.source === "watch");
 }
 
 function renderHeatmap() {
@@ -411,8 +419,10 @@ function renderReport() {
   }, null);
   const persona = getPersonaName(getPersonaScores());
   const mood = mostCommon(week.map((record) => record.mood));
+  const watchCount = week.filter((record) => record.source === "watch").length;
+  const watchLine = watchCount ? `腕上缓冲触发了 ${watchCount} 次。` : "";
   reportTitle.textContent = `本周人格：${persona}`;
-  reportBody.textContent = `你这周留下了 ${week.length} 条深夜记录，最常出现的状态是“${mood}”。${latest ? `最晚一次停在 ${formatClock(new Date(latest.endAt))}。` : ""} ${config.reportCopy.advice}`;
+  reportBody.textContent = `你这周留下了 ${week.length} 条深夜记录，最常出现的状态是“${mood}”。${latest ? `最晚一次停在 ${formatClock(new Date(latest.endAt))}。` : ""}${watchLine} ${config.reportCopy.advice}`;
 }
 
 function mostCommon(values) {
@@ -449,11 +459,39 @@ function renderWatchActions() {
     button.addEventListener("click", () => {
       watchFace.textContent = item.face;
       watchMood.textContent = item.mood;
-      watchReply.textContent = item.reply;
+      watchReply.textContent = item.prompt || item.reply;
       saveWatchMoment(item);
-      showToast("已记录一次手表情绪");
+      showToast("已记录一次腕上缓冲");
     });
     watchActions.appendChild(button);
+  });
+}
+
+function renderWatchSummary() {
+  const watchRecords = getWatchRecords();
+  const week = watchRecords.filter((record) => isThisWeek(record.endAt));
+  const latest = watchRecords[0];
+  watchWeekCount.textContent = String(week.length);
+  watchTopMood.textContent = week.length ? mostCommon(week.map((record) => record.mood)) : "--";
+  watchLatestTime.textContent = latest ? formatClock(new Date(latest.endAt)) : "--:--";
+
+  watchTimeline.innerHTML = "";
+  if (!watchRecords.length) {
+    watchTimeline.innerHTML = `<div class="watch-empty">点一次手表状态后，这里会出现最近的腕上缓冲。</div>`;
+    return;
+  }
+
+  watchRecords.slice(0, 3).forEach((record) => {
+    const item = document.createElement("article");
+    item.className = "watch-log";
+    item.innerHTML = `
+      <span>${record.mood}</span>
+      <div>
+        <strong>${formatClock(new Date(record.endAt))}</strong>
+        <p>${escapeHtml(record.reply)}</p>
+      </div>
+    `;
+    watchTimeline.appendChild(item);
   });
 }
 
@@ -467,6 +505,7 @@ function renderAll() {
   renderReport();
   renderRoom();
   renderWatchActions();
+  renderWatchSummary();
 }
 
 function escapeHtml(value) {
