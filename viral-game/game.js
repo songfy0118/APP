@@ -721,7 +721,7 @@
   function shareText() {
     const level = currentLevel();
     const streak = getStreak();
-    return `我在《离谱找茬局》${level.theme}拿了 ${state.score} 分，今日挑战${state.dailyStatus}，连胜 ${streak.count || 0} 天。挑战码 ${challengeCode()}，30 秒找 5 个不对劲，你敢试吗？`;
+    return `我在《离谱找茬局》${level.theme}拿了 ${state.score} 分，今日挑战${state.dailyStatus}，连胜 ${streak.count || 0} 天。挑战码 ${challengeCode()}，30 秒找 5 个不对劲。玩完我去小月亮做了 10 秒腕上缓冲，你敢试吗？`;
   }
 
   async function copyShareText() {

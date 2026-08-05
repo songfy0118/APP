@@ -375,6 +375,38 @@ dialog::backdrop {
   margin-top: 14px;
 }
 
+.companion-cta {
+  display: grid;
+  gap: 6px;
+  margin-top: 12px;
+  padding: 12px;
+  border-radius: 8px;
+  background: rgba(19, 168, 138, 0.1);
+  border: 1px solid rgba(19, 168, 138, 0.18);
+}
+
+.companion-cta strong {
+  font-size: 15px;
+}
+
+.companion-cta p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.companion-cta a {
+  display: inline-grid;
+  place-items: center;
+  min-height: 38px;
+  border-radius: 8px;
+  background: var(--accent-2);
+  color: #fff;
+  font-weight: 900;
+  text-decoration: none;
+}
+
 .ad-card h2 {
   font-size: 24px;
 }
