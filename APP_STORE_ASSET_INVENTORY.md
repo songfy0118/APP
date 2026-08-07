@@ -48,7 +48,7 @@
 
 - Apple Developer Program 账号。
 - App Store Connect App 记录。
-- Bundle ID、SKU、App 名称最终确认。
+- Bundle ID、SKU、App 名称最终确认；候选值见 `BUNDLE_ID_AND_VERSIONING.md`。
 - Xcode iOS 工程。
 - watchOS App target。
 - iPhone + Apple Watch 真机或模拟器可运行 build。

@@ -10,6 +10,17 @@
 
 睡前情绪记录与腕上缓冲
 
+### Bundle ID / SKU / Version
+
+详见：`BUNDLE_ID_AND_VERSIONING.md`
+
+建议第一版：
+
+- Bundle ID: `com.jinwanbushui.app`
+- SKU: `JINWANBUSHUI-IOS-001`
+- Version: `0.1.0`
+- Build: `1`
+
 ### Category
 
 Primary:

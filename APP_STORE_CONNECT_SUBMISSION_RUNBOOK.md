@@ -23,6 +23,7 @@
 3. 添加 watchOS target。
 4. 接入或放入 `native/watchos/MoonWatchCompanion.swift`。
 5. 设置 Team、Bundle ID、Version、Build。
+   - 第一版候选值见 `BUNDLE_ID_AND_VERSIONING.md`。
 6. 在 iPhone Simulator / 真机运行。
 7. 在 Apple Watch Simulator / 真机运行。
 8. Product -> Archive。

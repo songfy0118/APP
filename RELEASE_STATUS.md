@@ -24,6 +24,7 @@
 - App Review 备注草稿：`APP_REVIEW_NOTES_DRAFT.md`
 - App Store Connect 填表值草稿：`APP_STORE_CONNECT_FIELD_VALUES.md`
 - App Store 资产盘点：`APP_STORE_ASSET_INVENTORY.md`
+- Bundle ID 与版本号草案：`BUNDLE_ID_AND_VERSIONING.md`
 - App Store 1024 图标候选：`assets/app-icon-1024.png`
 - 隐私政策草稿：`PRIVACY_POLICY_DRAFT.md`
 - 隐私政策网页：`privacy.html`
