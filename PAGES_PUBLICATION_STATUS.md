@@ -26,6 +26,8 @@
 
 ## 最短修复路径
 
+### 路线 A：继续用 GitHub Actions
+
 1. 打开 `https://github.com/songfy0118/APP/actions`。
 2. 找到最新的 `Deploy static preview`。
 3. 如果没有运行，点 `Run workflow`。
@@ -37,6 +39,22 @@
    - `https://songfy0118.github.io/APP/support.html`
    - `https://songfy0118.github.io/APP/privacy.html`
    - `https://songfy0118.github.io/APP/terms.html`
+
+### 路线 B：改用分支根目录部署
+
+如果 Actions 路线当天不稳定，直接改用分支部署：
+
+1. 打开 `https://github.com/songfy0118/APP/settings/pages`。
+2. Source 选择 `Deploy from a branch`。
+3. Branch 选择 `master`。
+4. Folder 选择 `/root`。
+5. 保存后等待部署完成。
+6. 再次打开：
+   - `https://songfy0118.github.io/APP/support.html`
+   - `https://songfy0118.github.io/APP/privacy.html`
+   - `https://songfy0118.github.io/APP/terms.html`
+
+当前仓库是静态页面，根目录部署足够用于 App Store Connect 的 Support URL、Privacy Policy URL 和 Terms URL。
 
 ## 临时备用方案
 
@@ -52,4 +70,3 @@
 - `APP_STORE_CONNECT_SUBMISSION_RUNBOOK.md`
 - `APP_STORE_ASSET_INVENTORY.md`
 - `RELEASE_STATUS.md`
-

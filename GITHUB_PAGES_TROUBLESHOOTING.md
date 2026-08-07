@@ -67,6 +67,6 @@ GitHub Pages 首次部署可能需要几分钟。部署成功后，Pages 设置�
 
 备用方案：
 
-1. 在 `Settings -> Pages` 中选择从 `master` 分支根目录部署。
+1. 在 `Settings -> Pages` 中选择 `Deploy from a branch`，再选择 `master` 分支 `/root` 目录部署。
 2. 或者把 `support.html`、`privacy.html` 和 `terms.html` 放到任意静态托管服务。
 3. 确保 URL 是 HTTPS。

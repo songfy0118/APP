@@ -21,15 +21,24 @@
 
 `Settings -> Pages`
 
-如果 GitHub 没有自动启用，需要选择：
+推荐路线：
 
 - Source: GitHub Actions
+
+如果 Actions 路线一直 404，可以改用更简单的分支部署：
+
+- Source: Deploy from a branch
+- Branch: `master`
+- Folder: `/root`
+
+当前仓库的 `index.html`、`support.html`、`privacy.html`、`terms.html` 都在根目录，所以分支根目录部署也可以满足 App Store Connect 的 URL 要求。
 
 部署成功后，常见访问地址会类似：
 
 - App 预览：`https://songfy0118.github.io/APP/`
 - 隐私政策：`https://songfy0118.github.io/APP/privacy.html`
 - 用户协议：`https://songfy0118.github.io/APP/terms.html`
+- 支持页面：`https://songfy0118.github.io/APP/support.html`
 - 小游戏实验：`https://songfy0118.github.io/APP/viral-game/`
 
 实际 URL 以 GitHub Pages 页面显示为准。
@@ -43,6 +52,10 @@
 用户协议 URL：
 
 `https://songfy0118.github.io/APP/terms.html`
+
+支持 URL：
+
+`https://songfy0118.github.io/APP/support.html`
 
 ## 注意
 

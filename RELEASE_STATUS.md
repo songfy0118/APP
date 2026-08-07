@@ -38,7 +38,7 @@
 
 - 已添加 GitHub Pages Actions 工作流：`.github/workflows/pages.yml`
 - 已添加 `.nojekyll`
-- 已添加部署说明：`GITHUB_PAGES_DEPLOYMENT.md`
+- 已添加部署说明：`GITHUB_PAGES_DEPLOYMENT.md`，包含 Actions 和 `master / root` 两条路线
 - 已添加 Pages 排查清单：`GITHUB_PAGES_TROUBLESHOOTING.md`
 - 已添加 Pages 公开访问状态：`PAGES_PUBLICATION_STATUS.md`
 
