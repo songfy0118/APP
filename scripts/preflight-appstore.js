@@ -31,6 +31,8 @@ const requiredFiles = [
   "APP_STORE_SCREENSHOT_PLAN.md",
   "SCREENSHOT_CAPTURE_CHECKLIST.md",
   "SCREENSHOT_DEMO_MODE.md",
+  "screenshots/iphone/.gitkeep",
+  "screenshots/watch/.gitkeep",
   "APP_STORE_ASSET_INVENTORY.md",
   "TESTFLIGHT_AND_PRIVACY_CHECKLIST.md",
   "MAC_XCODE_HANDOFF.md",

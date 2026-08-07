@@ -12,7 +12,7 @@
 - `screenshots/iphone/`
 - `screenshots/watch/`
 
-当前仓库尚未提交真实截图，避免用浏览器模拟图冒充 App Store 截图。
+当前仓库只提交了目录占位文件，尚未提交真实截图，避免用浏览器模拟图冒充 App Store 截图。
 
 ## iPhone 截图
 
