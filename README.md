@@ -48,6 +48,7 @@ http://电脑的局域网IP:5173/index.html
 - `privacy.html` / `terms.html`：上架前隐私政策和用户协议网页
 - `.github/workflows/pages.yml`：GitHub Pages 静态部署工作流
 - `RELEASE_STATUS.md`：当前完成度、阻塞项和下一步
+- `MAC_XCODE_HANDOFF.md`：在 Mac/Xcode 中继续打包和接 Apple Watch 的执行清单
 
 ## GitHub Pages
 

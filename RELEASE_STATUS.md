@@ -27,6 +27,7 @@
 - 用户协议网页：`terms.html`
 - TestFlight 与隐私标签检查表：`TESTFLIGHT_AND_PRIVACY_CHECKLIST.md`
 - WatchConnectivity 接入计划：`WATCH_CONNECTIVITY_XCODE_PLAN.md`
+- Mac / Xcode 交接执行清单：`MAC_XCODE_HANDOFF.md`
 
 ### 静态部署
 
@@ -73,7 +74,7 @@
 1. 在 GitHub 页面确认 Pages 部署成功，拿到隐私政策 HTTPS URL。
 2. 如果 Pages 没成功，按 `GITHUB_PAGES_TROUBLESHOOTING.md` 排查。
 3. 在 Mac/Xcode 建立真实 iOS + watchOS 工程。
-4. 接 WatchConnectivity，把 Watch 端事件写入 iPhone。
+4. 按 `MAC_XCODE_HANDOFF.md` 接 WatchConnectivity，把 Watch 端事件写入 iPhone。
 5. 生成 TestFlight build。
 
 ## 当前不建议继续做

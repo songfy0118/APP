@@ -95,6 +95,7 @@ Apple Watch:
 - GitHub Pages 部署说明：`GITHUB_PAGES_DEPLOYMENT.md`
 - GitHub Pages 排查清单：`GITHUB_PAGES_TROUBLESHOOTING.md`
 - WatchConnectivity 计划：`WATCH_CONNECTIVITY_XCODE_PLAN.md`
+- Mac / Xcode 交接执行清单：`MAC_XCODE_HANDOFF.md`
 - TestFlight 与隐私标签检查表：`TESTFLIGHT_AND_PRIVACY_CHECKLIST.md`
 - App Store 截图计划：`APP_STORE_SCREENSHOT_PLAN.md`
 - App Review 备注草稿：`APP_REVIEW_NOTES_DRAFT.md`
