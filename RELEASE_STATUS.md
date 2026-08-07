@@ -21,6 +21,7 @@
 - App Store 元数据草稿：`APP_STORE_METADATA_DRAFT.md`
 - App Store 截图计划：`APP_STORE_SCREENSHOT_PLAN.md`
 - App Review 备注草稿：`APP_REVIEW_NOTES_DRAFT.md`
+- App Store Connect 填表值草稿：`APP_STORE_CONNECT_FIELD_VALUES.md`
 - 隐私政策草稿：`PRIVACY_POLICY_DRAFT.md`
 - 隐私政策网页：`privacy.html`
 - 用户协议网页：`terms.html`
