@@ -43,6 +43,7 @@ http://电脑的局域网IP:5173/index.html
 - `manifest.json`：PWA 安装配置
 - `service-worker.js`：离线缓存基础
 - `capacitor.config.json`：后续打包 iOS/Android 的 Capacitor 配置
+- `assets/app-icon-1024.png`：App Store 1024 图标候选
 - `native/watchos/MoonWatchCompanion.swift`：Apple Watch 端 SwiftUI 雏形
 - `APP_STORE_SUBMISSION.md`：App Store 提交路线
 - `privacy.html` / `terms.html`：上架前隐私政策和用户协议网页

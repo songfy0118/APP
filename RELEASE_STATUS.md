@@ -23,6 +23,7 @@
 - App Review 备注草稿：`APP_REVIEW_NOTES_DRAFT.md`
 - App Store Connect 填表值草稿：`APP_STORE_CONNECT_FIELD_VALUES.md`
 - App Store 资产盘点：`APP_STORE_ASSET_INVENTORY.md`
+- App Store 1024 图标候选：`assets/app-icon-1024.png`
 - 隐私政策草稿：`PRIVACY_POLICY_DRAFT.md`
 - 隐私政策网页：`privacy.html`
 - 用户协议网页：`terms.html`
@@ -48,7 +49,8 @@
 - 隐私政策 URL 是否可访问。
 - 支持 URL 是否可访问。
 - 当前自动检查尚未确认公开 URL 可访问，需要在 GitHub 页面手动核对。
-- App Store 1024 图标、iPhone 截图、Apple Watch 截图尚未生成。
+- iPhone 截图、Apple Watch 截图尚未生成。
+- 1024 图标候选已生成，但提交前仍需人工确认视觉效果。
 
 预期 URL：
 
@@ -78,7 +80,7 @@
 
 1. 在 GitHub 页面确认 Pages 部署成功，拿到隐私政策 HTTPS URL。
 2. 如果 Pages 没成功，按 `GITHUB_PAGES_TROUBLESHOOTING.md` 排查。
-3. 按 `APP_STORE_ASSET_INVENTORY.md` 补齐 1024 图标、iPhone 截图、Apple Watch 截图。
+3. 按 `APP_STORE_ASSET_INVENTORY.md` 补齐 iPhone 截图、Apple Watch 截图，并确认 1024 图标。
 4. 在 Mac/Xcode 建立真实 iOS + watchOS 工程。
 5. 按 `MAC_XCODE_HANDOFF.md` 接 WatchConnectivity，把 Watch 端事件写入 iPhone。
 6. 生成 TestFlight build。

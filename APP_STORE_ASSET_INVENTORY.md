@@ -21,6 +21,7 @@
 - SVG 图标：`assets/app-icon.svg`
 - PWA 192 图标：`assets/app-icon-192.png`
 - PWA 512 图标：`assets/app-icon-512.png`
+- App Store 1024 图标候选：`assets/app-icon-1024.png`
 
 ### 政策与网页
 
@@ -52,7 +53,6 @@
 - iPhone + Apple Watch 真机或模拟器可运行 build。
 - Xcode Archive 上传到 App Store Connect。
 - TestFlight build。
-- App Store 1024 x 1024 图标。
 - iPhone 截图。
 - Apple Watch 截图。
 - 可公开访问的 Support URL：预期为 `https://songfy0118.github.io/APP/support.html`。
@@ -110,7 +110,8 @@
 4. 用模拟器和真机各跑一遍 iPhone + Watch。
 5. 截 iPhone 和 Apple Watch 上架图。
 6. 准备 1024 x 1024 App Store 图标。
-7. Xcode Archive 上传 TestFlight。
-8. 在 App Store Connect 按 `APP_STORE_CONNECT_FIELD_VALUES.md` 填表。
-9. 复制 `APP_REVIEW_NOTES_DRAFT.md` 到审核备注。
-10. 提交审核。
+7. 人工确认 `assets/app-icon-1024.png` 的视觉效果，如需换品牌形象再替换。
+8. Xcode Archive 上传 TestFlight。
+9. 在 App Store Connect 按 `APP_STORE_CONNECT_FIELD_VALUES.md` 填表。
+10. 复制 `APP_REVIEW_NOTES_DRAFT.md` 到审核备注。
+11. 提交审核。
