@@ -7,6 +7,7 @@
 
 ## 0. 提交前确认
 
+- 本地运行 `npm run preflight:appstore`，确认没有 errors。
 - Apple Developer Program 已开通。
 - GitHub Pages 已成功部署。
 - Support URL 可访问：`https://songfy0118.github.io/APP/support.html`
@@ -89,4 +90,3 @@
 - 记录提交时间、版本号和 build 号。
 - 如果被拒，先复制完整拒审理由，再按问题分类处理。
 - 不要为了通过审核临时添加未经测试的功能。
-

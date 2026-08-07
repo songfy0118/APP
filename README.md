@@ -80,6 +80,12 @@ https://songfy0118.github.io/APP/terms.html
 6. 准备隐私政策、用户协议、截图和描述
 7. 提交 App Store 审核
 
+提交前可先运行本地预检：
+
+```bat
+npm run preflight:appstore
+```
+
 ## 审核表述建议
 
 推荐定位为：
