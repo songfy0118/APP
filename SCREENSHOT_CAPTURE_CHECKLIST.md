@@ -51,7 +51,8 @@
 3. 在 Apple Watch 模拟器或真机中触发一次“紧张”或“困”的 10 秒缓冲。
 4. 按上方文件名逐张截图。
 5. 放入 `screenshots/iphone/` 和 `screenshots/watch/`。
-6. 回到 App Store Connect 上传对应平台截图。
+6. 运行 `npm run check:screenshots` 确认文件名齐全。
+7. 回到 App Store Connect 上传对应平台截图。
 
 ## 质量检查
 

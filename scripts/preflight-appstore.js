@@ -38,6 +38,7 @@ const requiredFiles = [
   "MAC_XCODE_HANDOFF.md",
   "PAGES_PUBLICATION_STATUS.md",
   "scripts/check-review-copy.js",
+  "scripts/check-screenshots.js",
 ];
 
 const warningChecks = [

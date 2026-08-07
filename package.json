@@ -5,10 +5,11 @@
   "description": "今晚不睡 - 深夜记录与陪伴 App 雏形",
   "scripts": {
     "serve": "python -m http.server 5173 --bind 127.0.0.1",
-    "check": "node --check app.js && node --check config.js && node --check service-worker.js && node --check viral-game/game.js && node --check scripts/preflight-appstore.js && node --check scripts/check-pages.js && node --check scripts/check-review-copy.js",
+    "check": "node --check app.js && node --check config.js && node --check service-worker.js && node --check viral-game/game.js && node --check scripts/preflight-appstore.js && node --check scripts/check-pages.js && node --check scripts/check-review-copy.js && node --check scripts/check-screenshots.js",
     "preflight:appstore": "node scripts/preflight-appstore.js",
     "check:pages": "node scripts/check-pages.js",
-    "check:review-copy": "node scripts/check-review-copy.js"
+    "check:review-copy": "node scripts/check-review-copy.js",
+    "check:screenshots": "node scripts/check-screenshots.js"
   },
   "dependencies": {},
   "devDependencies": {}
