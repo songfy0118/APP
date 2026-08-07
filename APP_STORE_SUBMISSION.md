@@ -100,4 +100,5 @@ Apple Watch:
 - App Store 截图计划：`APP_STORE_SCREENSHOT_PLAN.md`
 - App Review 备注草稿：`APP_REVIEW_NOTES_DRAFT.md`
 - App Store Connect 填表值草稿：`APP_STORE_CONNECT_FIELD_VALUES.md`
+- App Store 资产盘点：`APP_STORE_ASSET_INVENTORY.md`
 - 发布状态看板：`RELEASE_STATUS.md`
