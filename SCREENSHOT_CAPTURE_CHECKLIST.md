@@ -47,7 +47,7 @@
 ## 采集步骤
 
 1. 在 Mac 按 `MAC_XCODE_HANDOFF.md` 跑起 iPhone + watchOS 工程。
-2. 在 iPhone 模拟器或真机中准备几条本地记录，让报告页有数据。
+2. 可打开 `index.html?demo=screenshot` 生成稳定截图数据，详见 `SCREENSHOT_DEMO_MODE.md`。
 3. 在 Apple Watch 模拟器或真机中触发一次“紧张”或“困”的 10 秒缓冲。
 4. 按上方文件名逐张截图。
 5. 放入 `screenshots/iphone/` 和 `screenshots/watch/`。
@@ -60,4 +60,3 @@
 - Watch 截图能看出“用户主动选择状态”，不是自动诊断。
 - iPhone “我的”页能显示 Watch 最近记录。
 - 截图没有系统通知、个人账号、真实隐私内容。
-

@@ -9,6 +9,9 @@ const state = {
   roomSeed: 0,
 };
 
+const params = new URLSearchParams(window.location.search);
+const screenshotDemoMode = params.get("demo") === "screenshot";
+
 const $ = (selector) => document.querySelector(selector);
 const currentTime = $("#currentTime");
 const elapsedTime = $("#elapsedTime");
@@ -91,6 +94,119 @@ function seedRecords() {
       savedOnly: false,
     };
   });
+}
+
+function createScreenshotRecords() {
+  const now = new Date();
+  const base = [
+    {
+      daysAgo: 0,
+      startHour: 23,
+      startMinute: 42,
+      durationMinutes: 188,
+      mood: "脑子停不下来",
+      note: "明天的事还在脑子里排队，先写下来一点。",
+      reply: "今晚不用把所有问题都解决，先给它们排个队。",
+    },
+    {
+      daysAgo: 1,
+      startHour: 0,
+      startMinute: 18,
+      durationMinutes: 142,
+      mood: "焦虑",
+      note: "担心没做完的工作，想先让脑子安静一点。",
+      reply: "今晚先不审判自己。把明天交给明天的你。",
+    },
+    {
+      daysAgo: 2,
+      startHour: 23,
+      startMinute: 56,
+      durationMinutes: 96,
+      mood: "有点空",
+      note: "没有特别大的事，就是突然有点空。",
+      reply: "你不需要马上变好，今晚先被安静接住。",
+    },
+    {
+      daysAgo: 4,
+      startHour: 1,
+      startMinute: 12,
+      durationMinutes: 164,
+      mood: "舍不得今天结束",
+      note: "白天太快了，想多留一点自己的时间。",
+      reply: "可以不急着睡，先把今天最后一点点收好。",
+    },
+    {
+      daysAgo: 5,
+      startHour: 0,
+      startMinute: 34,
+      durationMinutes: 74,
+      mood: "想找人说话",
+      note: "想说点什么，但又不知道从哪句开始。",
+      reply: "我在。你不用组织得很完整，碎一点也可以。",
+    },
+    {
+      daysAgo: 6,
+      startHour: 23,
+      startMinute: 27,
+      durationMinutes: 118,
+      mood: "还很清醒",
+      note: "现在像一盏没关的小灯。",
+      reply: "清醒也可以慢慢降落，先把屏幕暗一点。",
+    },
+  ];
+
+  const watch = [
+    {
+      minutesAgo: 26,
+      mood: "紧张",
+      note: "Apple Watch 10 秒缓冲：紧张",
+      reply: "吸气 4 秒，呼气 6 秒",
+    },
+    {
+      minutesAgo: 82,
+      mood: "困",
+      note: "Apple Watch 10 秒缓冲：困",
+      reply: "把屏幕放远一点",
+    },
+    {
+      minutesAgo: 170,
+      mood: "烦",
+      note: "Apple Watch 10 秒缓冲：烦",
+      reply: "停 10 秒再决定",
+    },
+  ];
+
+  const records = base.map((item, index) => {
+    const start = new Date(now);
+    start.setDate(now.getDate() - item.daysAgo);
+    start.setHours(item.startHour, item.startMinute, 0, 0);
+    const end = new Date(start.getTime() + item.durationMinutes * 60000);
+    return {
+      id: `screenshot-night-${index + 1}`,
+      startAt: start.toISOString(),
+      endAt: end.toISOString(),
+      mood: item.mood,
+      note: item.note,
+      reply: item.reply,
+      savedOnly: false,
+    };
+  });
+
+  watch.forEach((item, index) => {
+    const createdAt = new Date(now.getTime() - item.minutesAgo * 60000);
+    records.unshift({
+      id: `screenshot-watch-${index + 1}`,
+      startAt: createdAt.toISOString(),
+      endAt: createdAt.toISOString(),
+      mood: item.mood,
+      note: item.note,
+      reply: item.reply,
+      savedOnly: true,
+      source: "watch",
+    });
+  });
+
+  return records;
 }
 
 function formatClock(date) {
@@ -557,14 +673,35 @@ $("#copyReport").addEventListener("click", async () => {
 
 tabs.forEach((tab) => {
   tab.addEventListener("click", () => {
-    const target = tab.dataset.tab;
-    tabs.forEach((item) => item.classList.toggle("active", item === tab));
-    screens.forEach((screen) => screen.classList.toggle("active", screen.dataset.screen === target));
+    activateTab(tab.dataset.tab);
   });
 });
 
+function activateTab(target) {
+  const fallback = "tonight";
+  const selected = [...tabs].some((tab) => tab.dataset.tab === target) ? target : fallback;
+  tabs.forEach((item) => item.classList.toggle("active", item.dataset.tab === selected));
+  screens.forEach((screen) => screen.classList.toggle("active", screen.dataset.screen === selected));
+}
+
+if (screenshotDemoMode) {
+  state.records = createScreenshotRecords();
+  state.session = null;
+  saveRecords();
+  saveSession();
+  companionLine.textContent = "今晚不用把所有问题都解决，先给它们排个队。";
+  nightNote.value = "明天的事还在脑子里排队，先写下来一点。";
+  const demoMood = document.querySelector('[data-mood="脑子停不下来"]');
+  if (demoMood) {
+    document.querySelectorAll(".mood").forEach((item) => item.classList.remove("active"));
+    demoMood.classList.add("active");
+    state.mood = demoMood.dataset.mood;
+  }
+}
+
 window.setInterval(updateClock, 1000);
 renderAll();
+activateTab(params.get("tab") || "tonight");
 
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
