@@ -87,6 +87,8 @@ SCREENSHOT_CAPTURE_CHECKLIST.md
 
 ## 提交前最后运行
 
+更完整说明见：`QUALITY_GATES.md`
+
 ```bat
 npm run check
 npm run preflight:appstore

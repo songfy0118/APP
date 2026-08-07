@@ -34,6 +34,7 @@
 - 支持页面：`support.html`
 - TestFlight 与隐私标签检查表：`TESTFLIGHT_AND_PRIVACY_CHECKLIST.md`
 - App Store Connect 提交当天流程：`APP_STORE_CONNECT_SUBMISSION_RUNBOOK.md`
+- 质量门禁清单：`QUALITY_GATES.md`
 - WatchConnectivity 接入计划：`WATCH_CONNECTIVITY_XCODE_PLAN.md`
 - Mac / Xcode 交接执行清单：`MAC_XCODE_HANDOFF.md`
 

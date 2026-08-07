@@ -5,6 +5,7 @@ const root = path.resolve(__dirname, "..");
 
 const requiredFiles = [
   "DO_THIS_NEXT.md",
+  "QUALITY_GATES.md",
   "index.html",
   "styles.css",
   "app.js",
