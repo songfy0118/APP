@@ -4,6 +4,7 @@ const path = require("path");
 const root = path.resolve(__dirname, "..");
 
 const requiredFiles = [
+  "DO_THIS_NEXT.md",
   "index.html",
   "styles.css",
   "app.js",

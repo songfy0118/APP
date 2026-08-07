@@ -36,6 +36,7 @@ http://电脑的局域网IP:5173/index.html
 
 ## 关键文件
 
+- `DO_THIS_NEXT.md`：当前最短下一步行动清单
 - `index.html`：手机 App 页面结构
 - `styles.css`：手机 App 外观样式
 - `app.js`：核心交互和本地数据逻辑

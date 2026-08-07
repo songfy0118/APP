@@ -86,6 +86,8 @@
 
 ## 下一步优先级
 
+最短行动清单见：`DO_THIS_NEXT.md`
+
 1. 按 `PAGES_PUBLICATION_STATUS.md` 修复 GitHub Pages 404，拿到可访问的 HTTPS URL。
 2. 如果 Pages 没成功，按 `GITHUB_PAGES_TROUBLESHOOTING.md` 使用备用静态托管。
 3. 按 `SCREENSHOT_CAPTURE_CHECKLIST.md` 补齐 iPhone 截图、Apple Watch 截图，并确认 1024 图标。
