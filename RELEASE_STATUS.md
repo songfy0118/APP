@@ -20,6 +20,7 @@
 - App Store 提交路线：`APP_STORE_SUBMISSION.md`
 - App Store 元数据草稿：`APP_STORE_METADATA_DRAFT.md`
 - App Store 截图计划：`APP_STORE_SCREENSHOT_PLAN.md`
+- App Store 截图采集执行表：`SCREENSHOT_CAPTURE_CHECKLIST.md`
 - App Review 备注草稿：`APP_REVIEW_NOTES_DRAFT.md`
 - App Store Connect 填表值草稿：`APP_STORE_CONNECT_FIELD_VALUES.md`
 - App Store 资产盘点：`APP_STORE_ASSET_INVENTORY.md`
@@ -80,7 +81,7 @@
 
 1. 在 GitHub 页面确认 Pages 部署成功，拿到隐私政策 HTTPS URL。
 2. 如果 Pages 没成功，按 `GITHUB_PAGES_TROUBLESHOOTING.md` 排查。
-3. 按 `APP_STORE_ASSET_INVENTORY.md` 补齐 iPhone 截图、Apple Watch 截图，并确认 1024 图标。
+3. 按 `SCREENSHOT_CAPTURE_CHECKLIST.md` 补齐 iPhone 截图、Apple Watch 截图，并确认 1024 图标。
 4. 在 Mac/Xcode 建立真实 iOS + watchOS 工程。
 5. 按 `MAC_XCODE_HANDOFF.md` 接 WatchConnectivity，把 Watch 端事件写入 iPhone。
 6. 生成 TestFlight build。

@@ -91,10 +91,10 @@
 - 准备截图文案。
 - 用浏览器预览 iPhone 页面。
 - 用本地 HTML 预览隐私政策和用户协议。
+- 准备截图执行表：`SCREENSHOT_CAPTURE_CHECKLIST.md`
 
 ## 必须到 Mac/Xcode 做的事
 
 - iPhone Simulator / 真机截图。
 - Apple Watch Simulator / 真机截图。
 - 按 App Store Connect 要求导出无透明通道 PNG/JPG。
-
