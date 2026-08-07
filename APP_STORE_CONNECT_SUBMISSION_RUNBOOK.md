@@ -9,6 +9,7 @@
 
 - 本地运行 `npm run preflight:appstore`，确认没有 errors。
 - Apple Developer Program 已开通。
+- 已按 `APPLE_DEVELOPER_SETUP_CHECKLIST.md` 注册 Bundle ID 并创建 App Store Connect App 记录。
 - GitHub Pages 已成功部署。若仍是 404，先按 `PAGES_PUBLICATION_STATUS.md` 修复。
 - Support URL 可访问：`https://songfy0118.github.io/APP/support.html`
 - Privacy Policy URL 可访问：`https://songfy0118.github.io/APP/privacy.html`

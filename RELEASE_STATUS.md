@@ -25,6 +25,7 @@
 - App Store Connect 填表值草稿：`APP_STORE_CONNECT_FIELD_VALUES.md`
 - App Store 资产盘点：`APP_STORE_ASSET_INVENTORY.md`
 - Bundle ID 与版本号草案：`BUNDLE_ID_AND_VERSIONING.md`
+- Apple Developer 与 App Store Connect 设置清单：`APPLE_DEVELOPER_SETUP_CHECKLIST.md`
 - App Store 1024 图标候选：`assets/app-icon-1024.png`
 - 隐私政策草稿：`PRIVACY_POLICY_DRAFT.md`
 - 隐私政策网页：`privacy.html`
@@ -78,6 +79,8 @@
 - 开发者联系邮箱。
 - 隐私政策生效日期。
 - App Store Connect 里的 App 名称、Bundle ID、SKU。
+- Apple Developer 后台是否已注册 Bundle ID。
+- App Store Connect App 记录是否已创建。
 - 是否需要账号、云同步、广告、分析或订阅。
 
 ## 下一步优先级
@@ -85,9 +88,10 @@
 1. 按 `PAGES_PUBLICATION_STATUS.md` 修复 GitHub Pages 404，拿到可访问的 HTTPS URL。
 2. 如果 Pages 没成功，按 `GITHUB_PAGES_TROUBLESHOOTING.md` 使用备用静态托管。
 3. 按 `SCREENSHOT_CAPTURE_CHECKLIST.md` 补齐 iPhone 截图、Apple Watch 截图，并确认 1024 图标。
-4. 在 Mac/Xcode 建立真实 iOS + watchOS 工程。
-5. 按 `MAC_XCODE_HANDOFF.md` 接 WatchConnectivity，把 Watch 端事件写入 iPhone。
-6. 按 `APP_STORE_CONNECT_SUBMISSION_RUNBOOK.md` 上传 TestFlight build 并提交审核。
+4. 按 `APPLE_DEVELOPER_SETUP_CHECKLIST.md` 注册 Bundle ID 并创建 App Store Connect App 记录。
+5. 在 Mac/Xcode 建立真实 iOS + watchOS 工程。
+6. 按 `MAC_XCODE_HANDOFF.md` 接 WatchConnectivity，把 Watch 端事件写入 iPhone。
+7. 按 `APP_STORE_CONNECT_SUBMISSION_RUNBOOK.md` 上传 TestFlight build 并提交审核。
 
 ## 当前不建议继续做
 

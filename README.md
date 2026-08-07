@@ -56,6 +56,7 @@ http://电脑的局域网IP:5173/index.html
 - `PAGES_PUBLICATION_STATUS.md`：GitHub Pages 公开访问状态和 404 修复路径
 - `SCREENSHOT_DEMO_MODE.md`：用于 App Store 截图采集的稳定示例数据模式
 - `BUNDLE_ID_AND_VERSIONING.md`：Bundle ID、SKU、Version、Build 候选值
+- `APPLE_DEVELOPER_SETUP_CHECKLIST.md`：Apple Developer 和 App Store Connect 创建记录清单
 - `MAC_XCODE_HANDOFF.md`：在 Mac/Xcode 中继续打包和接 Apple Watch 的执行清单
 
 ## GitHub Pages

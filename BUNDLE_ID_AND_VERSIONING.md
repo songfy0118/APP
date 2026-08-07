@@ -63,3 +63,4 @@ com.songfy0118.jinwanbushui
 com.songfy0118.tonightcompanion
 ```
 
+Apple Developer 与 App Store Connect 的具体创建步骤见：`APPLE_DEVELOPER_SETUP_CHECKLIST.md`
