@@ -98,6 +98,12 @@ GitHub Pages 设置修好后，可检查 App Store URL 是否公开可达：
 npm run check:pages
 ```
 
+提交审核前也可以扫描公开文案中的高风险表述：
+
+```bat
+npm run check:review-copy
+```
+
 ## 审核表述建议
 
 推荐定位为：

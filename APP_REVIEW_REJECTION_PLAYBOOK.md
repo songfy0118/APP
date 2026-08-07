@@ -123,7 +123,7 @@ The Apple Watch companion is manually triggered. Users tap one of four states, a
 
 - `npm run check`
 - `npm run preflight:appstore`
+- `npm run check:review-copy`
 - `npm run check:pages`
 - App Review Notes 使用 `APP_REVIEW_NOTES_DRAFT.md`
 - 拒审回复前先保存完整拒审文本
-

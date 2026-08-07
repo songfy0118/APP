@@ -35,6 +35,7 @@ const requiredFiles = [
   "TESTFLIGHT_AND_PRIVACY_CHECKLIST.md",
   "MAC_XCODE_HANDOFF.md",
   "PAGES_PUBLICATION_STATUS.md",
+  "scripts/check-review-copy.js",
 ];
 
 const warningChecks = [

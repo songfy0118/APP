@@ -90,6 +90,8 @@ SCREENSHOT_CAPTURE_CHECKLIST.md
 ```bat
 npm run check
 npm run preflight:appstore
+npm run check:review-copy
 npm run check:pages
 ```
 
+`check:pages` 当前会失败，直到 GitHub Pages 404 修好。
