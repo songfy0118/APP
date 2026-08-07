@@ -29,11 +29,13 @@ const requiredFiles = [
   "APP_STORE_ASSET_INVENTORY.md",
   "TESTFLIGHT_AND_PRIVACY_CHECKLIST.md",
   "MAC_XCODE_HANDOFF.md",
+  "PAGES_PUBLICATION_STATUS.md",
 ];
 
 const warningChecks = [
   "GitHub Pages support URL must be publicly reachable.",
   "GitHub Pages privacy URL must be publicly reachable.",
+  "Current expected GitHub Pages URLs returned 404 on 2026-08-07; fix Pages before App Store submission.",
   "Apple Developer Program account must be active.",
   "App Store Connect app record must be created.",
   "iPhone screenshots must be captured from simulator or real device.",
@@ -107,4 +109,3 @@ for (const warning of warnings) {
 if (errors.length > 0) {
   process.exit(1);
 }
-

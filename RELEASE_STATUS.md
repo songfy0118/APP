@@ -40,6 +40,7 @@
 - 已添加 `.nojekyll`
 - 已添加部署说明：`GITHUB_PAGES_DEPLOYMENT.md`
 - 已添加 Pages 排查清单：`GITHUB_PAGES_TROUBLESHOOTING.md`
+- 已添加 Pages 公开访问状态：`PAGES_PUBLICATION_STATUS.md`
 
 ## 当前阻塞
 
@@ -50,7 +51,7 @@
 - Actions 里的 Pages workflow 是否成功。
 - 隐私政策 URL 是否可访问。
 - 支持 URL 是否可访问。
-- 当前自动检查尚未确认公开 URL 可访问，需要在 GitHub 页面手动核对。
+- 2026-08-07 直接访问预期公开 URL 返回 404，当前不能填入 App Store Connect。
 - iPhone 截图、Apple Watch 截图尚未生成。
 - 1024 图标候选已生成，但提交前仍需人工确认视觉效果。
 
@@ -80,8 +81,8 @@
 
 ## 下一步优先级
 
-1. 在 GitHub 页面确认 Pages 部署成功，拿到隐私政策 HTTPS URL。
-2. 如果 Pages 没成功，按 `GITHUB_PAGES_TROUBLESHOOTING.md` 排查。
+1. 按 `PAGES_PUBLICATION_STATUS.md` 修复 GitHub Pages 404，拿到可访问的 HTTPS URL。
+2. 如果 Pages 没成功，按 `GITHUB_PAGES_TROUBLESHOOTING.md` 使用备用静态托管。
 3. 按 `SCREENSHOT_CAPTURE_CHECKLIST.md` 补齐 iPhone 截图、Apple Watch 截图，并确认 1024 图标。
 4. 在 Mac/Xcode 建立真实 iOS + watchOS 工程。
 5. 按 `MAC_XCODE_HANDOFF.md` 接 WatchConnectivity，把 Watch 端事件写入 iPhone。

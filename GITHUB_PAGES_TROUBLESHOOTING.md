@@ -2,10 +2,13 @@
 
 ## 当前现象
 
-已提交 GitHub Pages Actions 工作流，但公开 URL 仍未确认可访问：
+已提交 GitHub Pages Actions 工作流。2026-08-07 直接访问预期公开 URL 返回 404：
 
 - `https://songfy0118.github.io/APP/privacy.html`
 - `https://songfy0118.github.io/APP/terms.html`
+- `https://songfy0118.github.io/APP/support.html`
+
+详细状态记录见：`PAGES_PUBLICATION_STATUS.md`
 
 ## 手动检查顺序
 
@@ -57,12 +60,13 @@ GitHub Pages 首次部署可能需要几分钟。部署成功后，Pages 设置�
 - `APP_STORE_SUBMISSION.md`
 - `GITHUB_PAGES_DEPLOYMENT.md`
 - `RELEASE_STATUS.md`
+- `APP_STORE_CONNECT_FIELD_VALUES.md`
+- `APP_STORE_ASSET_INVENTORY.md`
 
 ## 如果 Actions 无法部署
 
 备用方案：
 
 1. 在 `Settings -> Pages` 中选择从 `master` 分支根目录部署。
-2. 或者把 `privacy.html` 和 `terms.html` 放到任意静态托管服务。
+2. 或者把 `support.html`、`privacy.html` 和 `terms.html` 放到任意静态托管服务。
 3. 确保 URL 是 HTTPS。
-

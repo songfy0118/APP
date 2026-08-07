@@ -9,7 +9,7 @@
 
 - 本地运行 `npm run preflight:appstore`，确认没有 errors。
 - Apple Developer Program 已开通。
-- GitHub Pages 已成功部署。
+- GitHub Pages 已成功部署。若仍是 404，先按 `PAGES_PUBLICATION_STATUS.md` 修复。
 - Support URL 可访问：`https://songfy0118.github.io/APP/support.html`
 - Privacy Policy URL 可访问：`https://songfy0118.github.io/APP/privacy.html`
 - Terms URL 可访问：`https://songfy0118.github.io/APP/terms.html`
