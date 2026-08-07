@@ -30,6 +30,7 @@
 - 用户协议网页：`terms.html`
 - 支持页面：`support.html`
 - TestFlight 与隐私标签检查表：`TESTFLIGHT_AND_PRIVACY_CHECKLIST.md`
+- App Store Connect 提交当天流程：`APP_STORE_CONNECT_SUBMISSION_RUNBOOK.md`
 - WatchConnectivity 接入计划：`WATCH_CONNECTIVITY_XCODE_PLAN.md`
 - Mac / Xcode 交接执行清单：`MAC_XCODE_HANDOFF.md`
 
@@ -84,7 +85,7 @@
 3. 按 `SCREENSHOT_CAPTURE_CHECKLIST.md` 补齐 iPhone 截图、Apple Watch 截图，并确认 1024 图标。
 4. 在 Mac/Xcode 建立真实 iOS + watchOS 工程。
 5. 按 `MAC_XCODE_HANDOFF.md` 接 WatchConnectivity，把 Watch 端事件写入 iPhone。
-6. 生成 TestFlight build。
+6. 按 `APP_STORE_CONNECT_SUBMISSION_RUNBOOK.md` 上传 TestFlight build 并提交审核。
 
 ## 当前不建议继续做
 

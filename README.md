@@ -52,6 +52,7 @@ http://电脑的局域网IP:5173/index.html
 - `RELEASE_STATUS.md`：当前完成度、阻塞项和下一步
 - `APP_STORE_ASSET_INVENTORY.md`：上架所需图标、截图、URL 和账号材料盘点
 - `SCREENSHOT_CAPTURE_CHECKLIST.md`：iPhone 和 Apple Watch 截图文件名与采集执行表
+- `APP_STORE_CONNECT_SUBMISSION_RUNBOOK.md`：App Store Connect 提交当天流程
 - `MAC_XCODE_HANDOFF.md`：在 Mac/Xcode 中继续打包和接 Apple Watch 的执行清单
 
 ## GitHub Pages
