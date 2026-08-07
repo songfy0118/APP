@@ -53,6 +53,7 @@ http://电脑的局域网IP:5173/index.html
 - `APP_STORE_ASSET_INVENTORY.md`：上架所需图标、截图、URL 和账号材料盘点
 - `SCREENSHOT_CAPTURE_CHECKLIST.md`：iPhone 和 Apple Watch 截图文件名与采集执行表
 - `APP_STORE_CONNECT_SUBMISSION_RUNBOOK.md`：App Store Connect 提交当天流程
+- `APP_REVIEW_REJECTION_PLAYBOOK.md`：App Review 拒审后的分类处理清单
 - `PAGES_PUBLICATION_STATUS.md`：GitHub Pages 公开访问状态和 404 修复路径
 - `SCREENSHOT_DEMO_MODE.md`：用于 App Store 截图采集的稳定示例数据模式
 - `BUNDLE_ID_AND_VERSIONING.md`：Bundle ID、SKU、Version、Build 候选值

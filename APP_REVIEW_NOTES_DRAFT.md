@@ -52,3 +52,4 @@ Avoided framing:
 - Medical-grade monitoring
 - Encouraging users to stay up late
 
+如果被拒审，按 `APP_REVIEW_REJECTION_PLAYBOOK.md` 先分类处理，不要临时扩大功能范围。

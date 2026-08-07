@@ -22,6 +22,7 @@
 - App Store 截图计划：`APP_STORE_SCREENSHOT_PLAN.md`
 - App Store 截图采集执行表：`SCREENSHOT_CAPTURE_CHECKLIST.md`
 - App Review 备注草稿：`APP_REVIEW_NOTES_DRAFT.md`
+- App Review 拒审应对清单：`APP_REVIEW_REJECTION_PLAYBOOK.md`
 - App Store Connect 填表值草稿：`APP_STORE_CONNECT_FIELD_VALUES.md`
 - App Store 资产盘点：`APP_STORE_ASSET_INVENTORY.md`
 - Bundle ID 与版本号草案：`BUNDLE_ID_AND_VERSIONING.md`
