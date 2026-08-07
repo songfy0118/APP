@@ -26,6 +26,7 @@
 - 隐私政策草稿：`PRIVACY_POLICY_DRAFT.md`
 - 隐私政策网页：`privacy.html`
 - 用户协议网页：`terms.html`
+- 支持页面：`support.html`
 - TestFlight 与隐私标签检查表：`TESTFLIGHT_AND_PRIVACY_CHECKLIST.md`
 - WatchConnectivity 接入计划：`WATCH_CONNECTIVITY_XCODE_PLAN.md`
 - Mac / Xcode 交接执行清单：`MAC_XCODE_HANDOFF.md`
@@ -45,6 +46,7 @@
 - Pages source 是否设置为 GitHub Actions。
 - Actions 里的 Pages workflow 是否成功。
 - 隐私政策 URL 是否可访问。
+- 支持 URL 是否可访问。
 - 当前自动检查尚未确认公开 URL 可访问，需要在 GitHub 页面手动核对。
 - App Store 1024 图标、iPhone 截图、Apple Watch 截图尚未生成。
 
@@ -52,6 +54,7 @@
 
 - `https://songfy0118.github.io/APP/privacy.html`
 - `https://songfy0118.github.io/APP/terms.html`
+- `https://songfy0118.github.io/APP/support.html`
 
 ### 需要在 Mac/Xcode 完成
 

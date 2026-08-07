@@ -27,6 +27,7 @@
 - 隐私政策草稿：`PRIVACY_POLICY_DRAFT.md`
 - 隐私政策网页：`privacy.html`
 - 用户协议网页：`terms.html`
+- 支持页面：`support.html`
 - GitHub Pages 工作流：`.github/workflows/pages.yml`
 - GitHub Pages 排查清单：`GITHUB_PAGES_TROUBLESHOOTING.md`
 
@@ -54,8 +55,8 @@
 - App Store 1024 x 1024 图标。
 - iPhone 截图。
 - Apple Watch 截图。
-- 可公开访问的 Support URL。
-- 可公开访问的 Privacy Policy URL。
+- 可公开访问的 Support URL：预期为 `https://songfy0118.github.io/APP/support.html`。
+- 可公开访问的 Privacy Policy URL：预期为 `https://songfy0118.github.io/APP/privacy.html`。
 
 ### 建议补齐
 
@@ -91,8 +92,8 @@
 - Privacy：当前按本地存储、不收集数据准备。
 - Review Notes：已有草稿。
 - Demo Account：当前不需要。
-- Support URL：等待 GitHub Pages 或其他静态托管成功。
-- Privacy Policy URL：等待 GitHub Pages 或其他静态托管成功。
+- Support URL：已有 `support.html`，等待 GitHub Pages 或其他静态托管成功。
+- Privacy Policy URL：已有 `privacy.html`，等待 GitHub Pages 或其他静态托管成功。
 
 ## 风险
 
@@ -113,4 +114,3 @@
 8. 在 App Store Connect 按 `APP_STORE_CONNECT_FIELD_VALUES.md` 填表。
 9. 复制 `APP_REVIEW_NOTES_DRAFT.md` 到审核备注。
 10. 提交审核。
-

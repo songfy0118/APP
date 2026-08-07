@@ -70,7 +70,7 @@ Secondary:
 
 上线前可暂用：
 
-`https://songfy0118.github.io/APP/`
+`https://songfy0118.github.io/APP/support.html`
 
 前提：GitHub Pages 已成功部署。
 
@@ -131,4 +131,3 @@ The current MVP stores records locally on the user's device. If account sync, cl
 - App 内不要鼓励用户熬夜。
 - 隐私政策 URL 可访问。
 - 如果 Watch target 随 iPhone App 提交，watchOS App 可正常启动。
-

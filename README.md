@@ -46,6 +46,7 @@ http://电脑的局域网IP:5173/index.html
 - `native/watchos/MoonWatchCompanion.swift`：Apple Watch 端 SwiftUI 雏形
 - `APP_STORE_SUBMISSION.md`：App Store 提交路线
 - `privacy.html` / `terms.html`：上架前隐私政策和用户协议网页
+- `support.html`：App Store Connect 支持网址页面
 - `.github/workflows/pages.yml`：GitHub Pages 静态部署工作流
 - `RELEASE_STATUS.md`：当前完成度、阻塞项和下一步
 - `APP_STORE_ASSET_INVENTORY.md`：上架所需图标、截图、URL 和账号材料盘点
@@ -59,6 +60,7 @@ http://电脑的局域网IP:5173/index.html
 
 ```text
 https://songfy0118.github.io/APP/
+https://songfy0118.github.io/APP/support.html
 https://songfy0118.github.io/APP/privacy.html
 https://songfy0118.github.io/APP/terms.html
 ```
