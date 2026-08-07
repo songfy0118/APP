@@ -87,6 +87,12 @@ https://songfy0118.github.io/APP/terms.html
 npm run preflight:appstore
 ```
 
+GitHub Pages 设置修好后，可检查 App Store URL 是否公开可达：
+
+```bat
+npm run check:pages
+```
+
 ## 审核表述建议
 
 推荐定位为：

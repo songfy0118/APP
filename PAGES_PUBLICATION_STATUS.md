@@ -9,6 +9,14 @@
 - `https://songfy0118.github.io/APP/privacy.html`
 - `https://songfy0118.github.io/APP/terms.html`
 
+GitHub 设置修复后，可在本地运行：
+
+```bat
+npm run check:pages
+```
+
+如果三个 URL 都返回 OK，再把它们填进 App Store Connect。
+
 ## 已有配置
 
 - Pages workflow：`.github/workflows/pages.yml`
@@ -53,6 +61,7 @@
    - `https://songfy0118.github.io/APP/support.html`
    - `https://songfy0118.github.io/APP/privacy.html`
    - `https://songfy0118.github.io/APP/terms.html`
+7. 或在本地运行 `npm run check:pages`。
 
 当前仓库是静态页面，根目录部署足够用于 App Store Connect 的 Support URL、Privacy Policy URL 和 Terms URL。
 
